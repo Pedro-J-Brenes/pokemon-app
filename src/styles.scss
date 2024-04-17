@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("./assets/fonts/Flexo/stylesheet.css");
+h5 {
+  color: #313131;
+  text-transform: none;
+}
+body {
+  font-family: "Flexo", arial, sans-serif;
+}
+h1 {
+  text-align: center;
+}

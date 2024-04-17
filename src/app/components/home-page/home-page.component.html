@@ -1,0 +1,38 @@
+<section class="title-wrapper">
+  <h1>Pokédex</h1>
+  <form class="search-form">
+    <label for="search">Name or ID</label>
+    <input
+      name="search"
+      type="text"
+      class="search-pokemon"
+      (keyup)="resolvePokemonList()"
+      [(ngModel)]="searching"
+      #search
+    />
+  </form>
+</section>
+<section class="list-wrapper">
+  <ul class="pokemon-list">
+    @for (pokemon of pokemonListToShow(); track pokemon.id) {
+    <li class="pokemon" (click)="navigateById(pokemon.id)">
+      <a class="pokemon__sprite-wrapper">
+        <img
+          class="pokemon__sprite"
+          [src]="pokemon.sprite"
+          alt="Image of {{ pokemon.name }}"
+        />
+      </a>
+      <div>
+        <p class="pokemon__id">N.º {{ pokemon.id | id }}</p>
+        <h5 class="pokemon__title">{{ pokemon.name | titlecase }}</h5>
+      </div>
+    </li>
+    } @empty { The list is empty }
+  </ul>
+  @if (!searching()) {
+  <div class="show-more-button-wrapper">
+    <a class="show-more-button" (click)="showMore()">Show More</a>
+  </div>
+  }
+</section>

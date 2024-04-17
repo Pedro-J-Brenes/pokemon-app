@@ -1,0 +1,64 @@
+<div class="detail__page">
+  @if ((pokemon$ | async)?.id) {
+
+  <section>
+    <div class="detail__name">
+      {{ (pokemon$ | async)?.name | titlecase }}
+      <span class="detail__id"> N.º {{ (pokemon$ | async)?.id | id }}</span>
+    </div>
+  </section>
+  <section class="detail__pokemon">
+    <div class="detail__sprite-wrapper">
+      <img
+        class="detail__sprite"
+        [src]="(pokemon$ | async)?.sprite"
+        alt="Sprite of {{ (pokemon$ | async)?.name }}"
+      />
+    </div>
+    <div class="detail__info-wrapper">
+      <div class="detail__info-card">
+        <div class="detail__height">
+          <span class="detail__label">Height</span>
+          <span class="detail__height-value">
+            {{ (pokemon$ | async)?.height | height }} m
+          </span>
+        </div>
+        <div class="detail__ability">
+          <span class="detail__label">Ability</span>
+          <span class="detail__ability-value">
+            {{ (pokemon$ | async)?.abilities?.[0]?.ability?.name | titlecase }}
+          </span>
+        </div>
+
+        <div class="detail__weight">
+          <span class="detail__label">Weight</span>
+          <span class="detail__weight-value">
+            {{ (pokemon$ | async)?.weight | height }} kg
+          </span>
+        </div>
+      </div>
+      <div class="detail__type-wrapper">
+        <span class="detail__type-label">Type</span>
+        <div class="detail__type">
+          @for (type of (pokemon$ | async)?.types; track $index) {
+          <img
+            class="detail__type-img button"
+            [src]="type.type.url"
+            alt="Image of the {{ type.type.name }} type"
+          />
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="detail__pokedex-button-wrapper">
+      <a (click)="router.navigate(['home'])" class="detail__pokedex-button"
+        >Go to the Pokédex</a
+      >
+    </div>
+  </section>
+  } @else {
+  <h1 class="loading">Loading...</h1>
+  }
+</div>
