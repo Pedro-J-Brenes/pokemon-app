@@ -53,7 +53,10 @@
   </section>
   <section>
     <div class="detail__pokedex-button-wrapper">
-      <a (click)="router.navigate(['home'])" class="detail__pokedex-button"
+      <a
+        (click)="router.navigate(['home'])"
+        data-cy="return-home-button"
+        class="detail__pokedex-button"
         >Go to the Pokédex</a
       >
     </div>

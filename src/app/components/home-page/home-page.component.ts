@@ -54,6 +54,7 @@ export class HomePageComponent implements OnInit {
   navigateById(pokemonId: string): void {
     this.router.navigateByUrl(`details/${pokemonId}`);
   }
+
   showMore(): void {
     this.amountToShow.update((value) => value + 36);
   }

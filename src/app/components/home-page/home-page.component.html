@@ -3,10 +3,10 @@
   <form class="search-form">
     <label for="search">Name or ID</label>
     <input
+      data-cy="search-input"
       name="search"
       type="text"
       class="search-pokemon"
-      (keyup)="resolvePokemonList()"
       [(ngModel)]="searching"
       #search
     />
