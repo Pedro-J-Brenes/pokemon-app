@@ -8,17 +8,16 @@ import { of } from 'rxjs';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      providers: [
+    imports: [RouterTestingModule, AppComponent],
+    providers: [
         {
-          provide: ActivatedRoute,
-          useValue: {
-            params: of({ id: 1 }),
-          },
+            provide: ActivatedRoute,
+            useValue: {
+                params: of({ id: 1 }),
+            },
         },
-      ],
-      declarations: [AppComponent],
-    }).compileComponents();
+    ],
+}).compileComponents();
   });
 
   it('should create the app', () => {
