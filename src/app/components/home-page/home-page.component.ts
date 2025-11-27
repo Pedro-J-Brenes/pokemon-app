@@ -19,11 +19,10 @@ import { selectAllPokemon } from '../../store/selectors/pokemon.selector';
 import { Pokemon } from '../../models/pokemon.model';
 
 @Component({
-  selector: 'app-home-page',
-  standalone: true,
-  imports: [CommonModule, IdPipe, FormsModule],
-  templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss',
+    selector: 'app-home-page',
+    imports: [CommonModule, IdPipe, FormsModule],
+    templateUrl: './home-page.component.html',
+    styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent implements OnInit {
   private router: Router = inject(Router);
