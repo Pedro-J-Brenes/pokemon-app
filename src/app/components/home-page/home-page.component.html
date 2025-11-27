@@ -20,6 +20,7 @@
         <img
           class="pokemon__sprite"
           [src]="pokemon.sprite"
+          onerror="this.onerror=null; this.src='assets/img/image.png'"
           alt="Image of {{ pokemon.name }}"
         />
       </a>
