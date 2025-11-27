@@ -1,12 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
 import { PokemonService } from './pokemon.service';
-import { HttpClient } from '@angular/common/http';
 import {
-  HttpClientTestingModule,
+  HttpClient,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
+import {
   HttpTestingController,
+  provideHttpClientTesting,
 } from '@angular/common/http/testing';
-import { of } from 'rxjs';
 import { Pokemon } from '../models/pokemon.model';
 
 describe('PokemonService', () => {
@@ -17,7 +20,11 @@ describe('PokemonService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
+      imports: [],
+      providers: [
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting(),
+      ],
     });
     service = TestBed.inject(PokemonService);
 

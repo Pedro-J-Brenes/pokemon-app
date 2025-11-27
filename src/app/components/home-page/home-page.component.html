@@ -3,10 +3,10 @@
   <form class="search-form">
     <label for="search">Name or ID</label>
     <input
+      data-cy="search-input"
       name="search"
       type="text"
       class="search-pokemon"
-      (keyup)="resolvePokemonList()"
       [(ngModel)]="searching"
       #search
     />
@@ -20,6 +20,7 @@
         <img
           class="pokemon__sprite"
           [src]="pokemon.sprite"
+          onerror="this.onerror=null; this.src='assets/img/image.png'"
           alt="Image of {{ pokemon.name }}"
         />
       </a>

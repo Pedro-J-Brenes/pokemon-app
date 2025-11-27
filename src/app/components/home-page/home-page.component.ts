@@ -1,4 +1,4 @@
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
   Component,
   OnInit,
@@ -12,11 +12,11 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Pokemon } from 'src/app/models/pokemon.model';
-import { IdPipe } from 'src/app/pipes/id.pipe';
-import { loadAllPokemon } from 'src/app/store/actions/pokemon.actions';
-import { PokemonState } from 'src/app/store/reducers/pokemon.reducer';
-import { selectAllPokemon } from 'src/app/store/selectors/pokemon.selector';
+import { IdPipe } from '../../pipes/id.pipe';
+import { loadAllPokemon } from '../../store/actions/pokemon.actions';
+import { PokemonState } from '../../store/reducers/pokemon.reducer';
+import { selectAllPokemon } from '../../store/selectors/pokemon.selector';
+import { Pokemon } from '../../models/pokemon.model';
 
 @Component({
   selector: 'app-home-page',
@@ -54,6 +54,7 @@ export class HomePageComponent implements OnInit {
   navigateById(pokemonId: string): void {
     this.router.navigateByUrl(`details/${pokemonId}`);
   }
+
   showMore(): void {
     this.amountToShow.update((value) => value + 36);
   }
